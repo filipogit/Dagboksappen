@@ -74,4 +74,29 @@ class Program
         }
     }
 
- 
+    static void SökAnteckningPåDatum()
+    {
+        Console.Write("Ange datum att söka (yyyy-MM-dd): ");
+        string input = Console.ReadLine();
+
+        if (DateTime.TryParseExact(input, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+        {
+            var foundEntries = diaryEntries.FindAll(e => e.Date.Date == date.Date);
+            if (foundEntries.Count == 0)
+            {
+                Console.WriteLine("Ingen anteckning hittades för detta datum.");
+            }
+            else
+            {
+                foreach (var entry in foundEntries)
+                {
+                    Console.WriteLine($"\nDatum: {entry.Date}");
+                    Console.WriteLine($"Text: {entry.Text}");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Felaktigt datumformat.");
+        }
+    }
