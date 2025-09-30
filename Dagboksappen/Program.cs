@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dagboksappen
+namespace Diaryentry
 {
-    public class Diaryentry
+    internal class Diaryentry
     {
         public DateTime Datum { get; set; }
         public string Text { get; set; }
