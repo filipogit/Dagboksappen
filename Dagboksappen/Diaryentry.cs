@@ -100,3 +100,47 @@ class Program
             Console.WriteLine("Felaktigt datumformat.");
         }
     }
+
+    static void SparaTillFil()
+    {
+        try
+        {
+            string json = JsonSerializer.Serialize(diaryEntries, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(fileName, json);
+            Console.WriteLine("Anteckningar sparade till fil.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fel vid sparande: {ex.Message}");
+        }
+    }
+
+    static void LäsFrånFil()
+    {
+        try
+        {
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine("Filen finns inte.");
+                return;
+            }
+
+            string json = File.ReadAllText(fileName);
+            diaryEntries = JsonSerializer.Deserialize<List<DiaryEntry>>(json);
+
+            if (diaryEntries == null)
+            {
+                diaryEntries = new List<DiaryEntry>();
+                Console.WriteLine("Ingen giltig data i filen.");
+            }
+            else
+            {
+                Console.WriteLine("Anteckningar laddade från fil.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fel vid läsning: {ex.Message}");
+        }
+    }
+}
