@@ -1,10 +1,19 @@
-﻿namespace Dagboksappen
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dagboksappen
 {
-    internal class Program
+    public class Diaryentry
     {
-        static void Main(string[] args)
+        public DateTime Datum { get; set; }
+        public string Text { get; set; }
+
+        public override string ToString()
         {
-            Console.WriteLine("Hello, World!");
+            return $"{Datum:yyyy-MM-dd HH:mm} - {Text}";
         }
     }
 }
