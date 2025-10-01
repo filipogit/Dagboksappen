@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Diaryentry
 {
-    internal class Diaryentry
+    internal class DiaryEntry
     {
-        public DateTime Datum { get; set; }
+        public DateTime Date { get; set; }
         public string Text { get; set; }
 
         public override string ToString()
         {
-            return $"{Datum:yyyy-MM-dd HH:mm} - {Text}";
+            return $"{Date:yyyy-MM-dd HH:mm} - {Text}";
         }
     }
 }

@@ -14,7 +14,7 @@ class Program
     {
         while (true)
         {
-            Console.WriteLine("\n----- DAGBOK -----");
+            Console.WriteLine("\n[===== DAGBOK =====]");
             Console.WriteLine("1. Skriv ny anteckning");
             Console.WriteLine("2. Lista alla anteckningar");
             Console.WriteLine("3. Sök anteckning på datum");
@@ -55,7 +55,7 @@ class Program
     {
         Console.Write("Skriv din anteckning: ");
         string text = Console.ReadLine();
-        diaryEntries.Add(new DiaryEntry { Date = DateTime.Now, Text = text });
+        diaryEntries.Add(new DiaryEntry { Date = DateTime.Now, Text = text.Trim() });
         Console.WriteLine("Anteckning sparad.");
     }
 
@@ -69,7 +69,7 @@ class Program
 
         foreach (var entry in diaryEntries)
         {
-            Console.WriteLine($"\nDatum: {entry.Date}");
+            Console.WriteLine($"\nDatum: {entry.Date:yyyy-MM-dd HH:mm}");
             Console.WriteLine($"Text: {entry.Text}");
         }
     }
@@ -135,7 +135,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("Anteckningar laddade från fil.");
+                Console.WriteLine($"{diaryEntries.Count} Anteckningar laddade från fil.");
             }
         }
         catch (Exception ex)
