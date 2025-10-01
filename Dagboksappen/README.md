@@ -63,6 +63,31 @@ Navigera till projektmappen i terminalen.
 
 Kör med dotnet run.
 
+
+Exempel på inmatning I/O
+Välj ett alternativ: 1
+Skriv din anteckning: Träffade en gammal vän idag!
+Anteckning sparad.
+
+
+Exempel på utmatning I/O
+Välj ett alternativ: 2
+
+Datum: 2025-09-30 14:32
+Text: Träffade en gammal vän idag!
+
+
+Kort reflektion
+
+Jag valde att använda en List<DiaryEntry> eftersom det är en enkel och effektiv datastruktur för att lagra anteckningar i ordning.
+Som I/O-format använde jag JSON, vilket är både lättläst och enkelt att hantera med System.Text.Json.
+Det gör programmet lätt att utöka, till exempel för webb- eller mobilappar.
+
+Fel hanteras med try/catch vid filoperationer för att fånga vanliga fel som saknade filer eller felaktigt innehåll. 
+Datum valideras med DateTime.TryParseExact, och tomma anteckningar tillåts inte.
+Syftet har varit att skapa ett stabilt program med tydliga felmeddelanden.
+
+
 	 Versionshistorik
 Version	Datum	Ändringar
 1.0	2025-09-30	Första versionen av dagboken med grundläggande funktioner
